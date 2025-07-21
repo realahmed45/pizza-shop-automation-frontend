@@ -65,7 +65,9 @@ const PizzaShopDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/admin/dashboard");
+      const response = await fetch(
+        "https://pizza-shop-automation-backend-1.onrender.com/api/admin/dashboard"
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -156,7 +158,9 @@ const PizzaShopDashboard = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/orders");
+      const response = await fetch(
+        "https://pizza-shop-automation-backend-1.onrender.com/api/admin/orders"
+      );
       if (response.ok) {
         const data = await response.json();
         setOrders(data.orders || data || []);
@@ -169,7 +173,9 @@ const PizzaShopDashboard = () => {
 
   const fetchCustomers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/customers");
+      const response = await fetch(
+        "https://pizza-shop-automation-backend-1.onrender.com/api/admin/customers"
+      );
       if (response.ok) {
         const data = await response.json();
         setCustomers(data.customers || data || []);
@@ -182,7 +188,9 @@ const PizzaShopDashboard = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/products");
+      const response = await fetch(
+        "https://pizza-shop-automation-backend-1.onrender.com/api/admin/products"
+      );
       if (response.ok) {
         const data = await response.json();
         setProducts(data.products || data || []);
@@ -196,7 +204,7 @@ const PizzaShopDashboard = () => {
   const updateOrderStatus = async (orderId, status) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/orders/${orderId}/status`,
+        `https://pizza-shop-automation-backend-1.onrender.com/api/admin/orders/${orderId}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -1170,7 +1178,7 @@ const MenuManagement = ({ products, onRefresh }) => {
                           };base64,${product.images[0].base64}`
                         : product.images[0].url?.startsWith("http")
                         ? product.images[0].url
-                        : `http://localhost:5000${product.images[0].url}`
+                        : `https://pizza-shop-automation-backend-1.onrender.com${product.images[0].url}`
                     }
                     alt={product.name}
                     className="w-full h-full object-cover"
@@ -1324,8 +1332,8 @@ const MenuItemForm = ({ product, onClose, onSave }) => {
 
     try {
       const url = product
-        ? `http://localhost:5000/api/admin/products/${product._id}`
-        : "http://localhost:5000/api/admin/products";
+        ? `https://pizza-shop-automation-backend-1.onrender.com/api/admin/products/${product._id}`
+        : "https://pizza-shop-automation-backend-1.onrender.com/api/admin/products";
       const method = product ? "PUT" : "POST";
 
       const response = await fetch(url, {
