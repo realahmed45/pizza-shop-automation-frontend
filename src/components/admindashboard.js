@@ -66,7 +66,7 @@ const PizzaShopDashboard = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://pizza-shop-automation-backend-1.onrender.com/api/admin/dashboard"
+        "https://pizza-shop-automation-backend.onrender.com/api/admin/dashboard"
       );
 
       if (response.ok) {
